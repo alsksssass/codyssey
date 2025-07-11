@@ -8,10 +8,10 @@ def pow_calculaor (pow :int , value :float):
 def main ():
     value = float(input("Enter number: "))
     if not isinstance(value, float):
-        return "float 값이 아닙니다"
+        return "Invalid exponent input."
     pow = int(input("Enter exponent: "))
     if not isinstance(pow, int):
-        return "int 값이 아닙니다"
+        return "Invalid number input."
     if(pow < 0 or value < 0):
         return "입력값오류"
     result = pow_calculaor(pow, value)
