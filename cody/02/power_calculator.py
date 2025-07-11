@@ -1,5 +1,5 @@
 def pow_calculaor (pow :int , value :float):
-    result = value
+    result = 1.0
     for _ in range(pow):
         result *= value
     return result
