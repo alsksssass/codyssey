@@ -10,8 +10,6 @@ def multiply(a, b):
     return a * b
 
 def devide(a, b):
-    if b == 0:
-        raise ZeroDivisionError("0으로 나눌 수 없습니다.")
     return a / b
 
 ops = {
@@ -22,27 +20,25 @@ ops = {
 }
 
 def evaluate(tokens):
-    # 1. *, / 먼저 계산
     stack = []
     i = 0
     while i < len(tokens):
         token = tokens[i]
         if token in ("*", "/"):
             if not stack:
-                raise ValueError("잘못된 수식 형식입니다.")
+                raise ValueError("Invalid input.")
             prev = float(stack.pop())
             i += 1
             try:
                 next_val = float(tokens[i])
             except:
-                raise ValueError("숫자가 필요합니다.")
+                raise ValueError("Invalid input.")
             result = ops[token](prev, next_val)
             stack.append(str(result))
         else:
             stack.append(token)
         i += 1
 
-    # 2. +, - 계산
     result = float(stack[0])
     i = 1
     while i < len(stack):
@@ -52,7 +48,7 @@ def evaluate(tokens):
         i += 2
     return result
 
-def defaultApp():
+def main():
     while True:
         try:
             expr = input("수식을 입력하세요 (예: 4 + 5 * 3 - 2), 종료(exit): ")
@@ -70,4 +66,4 @@ def defaultApp():
             print("Invalid input.")
 
 if __name__ == "__main__":
-    defaultApp()
+    main()
