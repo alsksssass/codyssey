@@ -5,6 +5,7 @@ from io import BytesIO
 from gtts import gTTS
 import base64
 
+
 DEFAULT_LANG = os.getenv('DEFAULT_LANG', 'ko')
 app = Flask(__name__, template_folder='david/templates', static_folder='david/static')
 
